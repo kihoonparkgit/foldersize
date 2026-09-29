@@ -1,0 +1,48 @@
+This is a design document for the FolderSize application.
+
+## 1. Overview
+FolderSize is a desktop application that helps users identify and manage large folders on their computer.
+
+## 2. Features
+- Scan selected folders and subfolders
+- Display folder sizes in a sortable list
+- Show folder path and size
+- Allow users to open folders in Explorer
+- Provide summary statistics
+
+
+## 3. User Interface
+- Main window with folder selection area
+- Results table with columns: Folder, Size, Path
+- Buttons: Scan, Clear, Open Folder
+- Status bar for progress updates
+- Can show folders in tree view with size of each folder
+- Parent folder size should be sum of all its children folders size
+
+### 3.1 Focus & Selection Visual Design
+The selected folder and its entire subtree must be clearly distinguished from the rest:
+- **Selected row**: Bold text, accent-colored left border bar (4px), highlighted background
+- **Focused subtree**: All direct children of the selected folder get a subtle tinted background
+  to visually "group" them with their parent — distinct from both the selected row and unrelated rows
+- **Hover state**: Light background tint on mouse-over (different color from selection)
+- **Folder icons**: Open-folder icon when expanded, closed-folder icon when collapsed
+- **Indentation guides**: Faint vertical lines connecting parent to children rows
+- **Depth tinting**: Each nesting level gets a slightly darker left-indent band to reinforce hierarchy
+
+### 3.2 Pie Chart   
+- Pie chart should show the size of each folder
+- Pie chart should be updated when the user selects a folder
+- Pie chart should show the size of each folder in the selected folder
+- Pie chart should show the size of each folder in the selected folder and its children folders
+
+## 4. Technical Requirements
+- Must run on Windows
+- Use Tkinter for GUI
+- Use os module for file operations
+- Display sizes in human-readable format (KB, MB, GB)
+
+## 5. Future Enhancements
+- Add filtering by size range
+- Add duplicate file detection
+- Add dark mode
+- Add multi-language support
